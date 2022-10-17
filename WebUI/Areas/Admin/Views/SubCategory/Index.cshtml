@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SubCategory>
+<a asp-area="Admin" asp-controller="SubCategory" asp-action="Create" >Create</a>
+
+
+<div class="container">
+    <div class="row">
+           <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Bordered Table</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Task</th>
+                      <th>Progress</th>
+                      <th style="width: 40px">Label</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                            @{
+                                int count = 1;
+                            }
+                      @foreach (var subCategory in Model)
+                      {
+                          <tr>
+                      <td>@count.</td>
+                      <td>@subCategory.Name</td>
+                      <td>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-danger">55%</span></td>
+                       <td class="col-2">
+                            <a href="/admin/subcategory/edit/@subCategory.Id" class="btn btn-outline-warning">Edit</a>
+                            <a href="/admin/subcategory/delete/@subCategory.Id " class="btn btn-outline-danger">Delete</a>
+                        </td>
+                         </tr>
+                                count++;
+                            }
+                   
+           
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.card -->
+
+          </div>
+
+    </div>
+
+</div>

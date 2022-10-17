@@ -1,0 +1,14 @@
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\arzuh\Desktop\K220Shop\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\arzuh\Desktop\K220Shop\Core\bin\Debug\net6.0\Core.dll
+C:\Users\arzuh\Desktop\K220Shop\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.dll
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\arzuh\Desktop\K220Shop\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\arzuh\Desktop\K220Shop\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache

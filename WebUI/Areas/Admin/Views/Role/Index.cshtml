@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+<a asp-area="Admin" asp-controller="Role" asp-action="Create" >Create</a>
+
+
+<div class="container">
+    <div class="row">
+           <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Bordered Table</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Role name</th>
+                      <th style="width: 40px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                            @{
+                                int count = 1;
+                            }
+                      @foreach (var role in Model)
+                      {
+                          <tr>
+                      <td>@count.</td>
+                      <td>@role.Name</td>
+                       <td class="col-2">
+                            <a href="/admin/role/edit/@role.Id" class="btn btn-outline-warning">Edit</a>
+                            <a href="/admin/role/delete/@role.Id " class="btn btn-outline-danger">Delete</a>
+                        </td>
+                         </tr>
+                                count++;
+                            }
+                   
+           
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.card -->
+
+          </div>
+
+    </div>
+
+</div>
