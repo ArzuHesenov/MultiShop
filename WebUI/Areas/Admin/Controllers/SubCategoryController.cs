@@ -8,10 +8,12 @@ namespace WebUI.Areas.Admin.Controllers
     public class SubCategoryController : Controller
     {
         private readonly ISubCategoryService _subCategoryService;
+        private readonly ICategoryService _categoryService;
 
-        public SubCategoryController(ISubCategoryService subCategoryService)
+        public SubCategoryController(ISubCategoryService subCategoryService, ICategoryService categoryService)
         {
             _subCategoryService = subCategoryService;
+            _categoryService = categoryService;
         }
         public IActionResult Index()
         {
@@ -22,12 +24,13 @@ namespace WebUI.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var categories= _categoryService.GetAllCategories();
+            return View(categories);
         }
         [HttpPost]
-        public IActionResult Create(SubCategory subCategory)
+        public IActionResult Create(SubCategory subCategory, List<int> categoryIds)
         {
-            _subCategoryService.AddSubCategory(subCategory);
+            _subCategoryService.AddSubCategory(subCategory,categoryIds);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]

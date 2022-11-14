@@ -1,0 +1,121 @@
+﻿@model IEnumerable<SubCategory>
+
+
+<div class="container ">
+    <div class="row">
+        <div class="col-8 m-auto ">
+            <form method="post" enctype="multipart/form-data">
+            <div class="card mt-5">
+                <div class="card-header">
+                    Product
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="productName"> Product name </label>
+                        <input class="form-control" placeholder="Enter product name" type="text" name="Name" id="productName" />
+                    </div>
+                       <div class="form-group">
+                        <label for="price"> Product price </label>
+                        <input class="form-control" placeholder="Enter product price" type="number" step=".01" name="Price" id="price" />
+                    </div>
+                        <div class="form-group">
+                        <label for="Quantity"> Product quantity </label>
+                        <input class="form-control" placeholder="Enter product quantity" type="number" step=".01" name="Quantity" id="quantity" />
+                    </div>
+                     <div class="form-group">
+                        <label for="FromAuthor"> Product from author </label>
+                        <input class="form-control" placeholder="Enter product from author" type="text"
+                        name="FromAuthor" id="FromAuthor" />
+                    </div>
+
+                      <div class="form-group">
+                        <label for="Description"> Product description </label>
+                        <input class="form-control" placeholder="Enter product description" type="text" name="Description" id="description" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Additional Information"> Product additional information </label>
+                        <input class="form-control" placeholder="Enter Additional Information" type="text" 
+                        name="AdditionalInformation" id="AdditionalInformation" />
+                    </div>
+
+                     <div class="form-group">
+                        <label for="Sub Category"> Sub Categories </label>
+
+                       <select name="SubCategoryId" class="form-control">
+                           @foreach (var subCategory in Model)
+                           {
+                               <option value="@subCategory.Id">@subCategory.Name</option>
+                           }
+
+                       </select>
+                       </div>
+
+                      <div class="form-group">
+                        <label for="ProductPicture">Upload Image </label>
+                        <input  type="file" multiple id="ProductPicture"/>
+                        <div id="ProductPictures" class="row mt-5">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input  type="submit" class="btn btn-primary" value="Submit" />
+                </div>
+            </div>
+              </form>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<script>
+$("#ProductPicture").change(function() {
+    var pictures = this.files;
+    var picsData = new FormData();
+
+    for (var i = 0; i < pictures.length; i++) {
+        picsData.append("Picture", pictures[i]);
+    }
+
+    $.ajax({
+        url:"/Admin/Picture/Upload",
+        type:"POST",
+        data:picsData,
+        processData:false,
+        contentType:false
+    }).done(function(res) {
+        console.log(res)
+        for (let i = 0; i < res.length; i++)
+        AddCard(res[i].id,res[i].photoUrl)
+    })
+})
+
+function AddCard(pictureId, pictureUrl) {
+    var cardDesign=`
+        <div id="card_${pictureId}" class="col-lg-3">
+    <div class="card">
+    <div class="card-header d-flex justify-content-end">
+    <i onclick="RemoveFromCard(${pictureId})" class="far fa-times-circle"></i>
+    </div>
+    <img class="img-fluid" src="${pictureUrl}"/>
+    <input type="hidden" value="${pictureId}" name="pictureIds" />
+    </div>  
+    </div>
+    `
+    var productCard = document.getElementById("ProductPictures");
+    productCard.innerHTML += cardDesign;
+
+   
+    
+}
+
+ function RemoveFromCard(cardId) {
+        let removingCard=document.getElementById(`card_${cardId}`)
+        removingCard.remove();
+    }
+
+</script>
+                        

@@ -22,6 +22,9 @@ namespace DataAccess.Concrete.SqlServer
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<CategorySub> CategorySubs { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
+        public DbSet<ProductPicture> ProductPictures { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

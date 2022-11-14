@@ -37,5 +37,14 @@ namespace WebUI.Areas.Admin.Controllers
             }
             return View();
         }
+        //public IActionResult Edit(int id)
+        //{
+        //    var 
+        //    return View();
+        //}
+        //public async Task<IActionResult> Edit(IdentityRole identityRole)
+        //{
+
+        //}
     }
 }

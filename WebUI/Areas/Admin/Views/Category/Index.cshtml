@@ -17,6 +17,7 @@
                       <th style="width: 10px">#</th>
                       <th>Task</th>
                       <th>Progress</th>
+                      <th>PhotoUrl </th>
                       <th style="width: 40px">Label</th>
                     </tr>
                   </thead>
@@ -29,6 +30,9 @@
                           <tr>
                       <td>@count.</td>
                       <td>@category.Name</td>
+                       <td>
+                            <img style="width:200px" src="@category.PhotoUrl"/>
+                       </td>
                       <td>
                         <div class="progress progress-xs">
                           <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
